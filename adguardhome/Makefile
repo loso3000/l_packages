@@ -7,12 +7,12 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=adguardhome
 PKG_VERSION:=0.107.6
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_VERSION:=null
 PKG_SOURCE_URL:=https://github.com/AdguardTeam/AdGuardHome
-PKG_MIRROR_HASH:=skip
+PKG_MIRROR_HASH:=6ad030cf8e47e35354b24cd6bdfce3afb9e26006a81a0596f11aaba8cfcc9e9b
 
 PKG_LICENSE:=GPL-3.0-only
 PKG_LICENSE_FILES:=LICENSE.txt
@@ -36,7 +36,7 @@ GO_PKG_LDFLAGS_X:=$(AGH_VERSION_PKG).channel=release \
 	$(AGH_VERSION_PKG).gomips=$(GO_MIPS)
 
 include $(INCLUDE_DIR)/package.mk
-include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
+include ../../lang/golang/golang-package.mk
 
 define Package/adguardhome
 	SECTION:=net
