@@ -6,11 +6,11 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=sagernet-core
 BASE_VERSION:=5.0.15
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/SagerNet/v2ray-core.git
-PKG_SOURCE_DATE:=2022-06-14
+PKG_SOURCE_DATE:=2022-06-16
 PKG_SOURCE_VERSION:=null
 PKG_MIRROR_HASH:=skip
 PKG_VERSION:=$(BASE_VERSION)-$(PKG_SOURCE_DATE)-$(call version_abbrev,$(PKG_SOURCE_VERSION))
