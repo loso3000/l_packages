@@ -7,8 +7,8 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=r8152
-PKG_VERSION:=2.15.20211119
-PKG_RELEASE:=1
+PKG_VERSION:=2.16.1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/wget/realtek-r8152-linux/tar.gz/v$(PKG_VERSION)?
@@ -23,13 +23,13 @@ PKG_MAINTAINER:=Tianling Shen <cnsztl@immortalwrt.org>
 include $(INCLUDE_DIR)/package.mk
 
 define KernelPackage/usb-net-rtl8152-vendor
+  VERSION:=$(LINUX_VERSION)+$(PKG_VERSION)-$(BOARD)-$(PKG_RELEASE)
   TITLE:=Kernel module for USB-to-Ethernet Realtek convertors
   SUBMENU:=USB Support
-  VERSION:=$(LINUX_VERSION)+$(PKG_VERSION)-$(BOARD)-$(PKG_RELEASE)
-  DEPENDS:=@TARGET_x86 +kmod-usb-net
-  CONFLICTS:=kmod-usb-net-rtl8152
-  FILES:= $(PKG_BUILD_DIR)/r8152.ko
+  DEPENDS:=+kmod-usb-net
+  FILES:=$(PKG_BUILD_DIR)/r8152.ko
   AUTOLOAD:=$(call AutoProbe,r8152)
+  CONFLICTS:=kmod-usb-net-rtl8152
 endef
 
 define KernelPackage/usb-net-rtl8152-vendor/description
